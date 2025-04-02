@@ -3,25 +3,7 @@
 ## Prerequisites
 Follow the instructions in [this repository](https://github.com/damiankryzia71/orbslam3-px4-qgc-ubuntu22) to install PX4, QGroundControl, and ORB-SLAM3.
 
-## 1. Run the Gazebo simulation
-Build PX4 and run a Gazebo-simulated drone. Here, I tested with the depth camera model inside the Baylands world.
-```bash
-cd PX4-Autopilot/
-make px4_sitl gz_x500_depth_baylands
-```
-## 2. View the camera feed inside QGroundControl
-Run the QGroundControl app image.
-```bash
-./QGroundControl.AppImage
-```
-Inside QGroundControl, navigate to Application Settings -> General -> Video Settings and enable streaming from UDP h.264 Video Stream.
-Leave the other options as default.
-
-![QGC Settings](https://github.com/damiankryzia71/orbslam3-gz-ubuntu22/blob/1434da47aa1d87834c4a4d755039aa4110919705/screenshots/Screenshot%20from%202025-04-01%2018-06-33.png)
-
-Now you should see the video feed from your Gazebo simulation inside QGroundControl.
-
-## 3. Gazebo Development Setup
+## 1. Gazebo Development Setup
 In order to make Gazebo libraries compile with ORB-SLAM3, we need to make small changes to soem Gazebo code.
 
 Open the files `Node.hh` and `NodeShared.hh`. 
@@ -38,6 +20,24 @@ In both of the files, change it to:
 public: TopicStatistics TopicStats(
         const std::string &_topic) const;
 ```
+
+## 2. Run the Gazebo simulation
+Build PX4 and run a Gazebo-simulated drone. Here, I tested with the depth camera model inside the Baylands world.
+```bash
+cd PX4-Autopilot/
+make px4_sitl gz_x500_depth_baylands
+```
+## 3. View the camera feed inside QGroundControl
+Run the QGroundControl app image.
+```bash
+./QGroundControl.AppImage
+```
+Inside QGroundControl, navigate to Application Settings -> General -> Video Settings and enable streaming from UDP h.264 Video Stream.
+Leave the other options as default.
+
+![QGC Settings](https://github.com/damiankryzia71/orbslam3-gz-ubuntu22/blob/1434da47aa1d87834c4a4d755039aa4110919705/screenshots/Screenshot%20from%202025-04-01%2018-06-33.png)
+
+Now you should see the video feed from your Gazebo simulation inside QGroundControl.
 
 ## 4. Monocular/Grayscale Setup
 The simulated camera should be publishing to a Gazebo topic. To list available topics, open a new terminal and run:
