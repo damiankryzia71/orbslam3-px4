@@ -44,3 +44,12 @@ add_executable(gz_preview_mono
         Examples/Monocular/gz_preview_mono.cpp)
 target_link_libraries(gz_preview_mono gz-transport13 gz-msgs10 ${PROJECT_NAME})
 ```
+Rebuild ORB-SLAM3 (in the ORB-SLAM3 directory).
+```bash
+./buid.sh
+```
+Run the executable with the Gazebo topic name as an argument.
+```bash
+./Examples/Monocular/gz_preview_mono /world/baylands/model/x500_depth_0/link/camera_link/sensor/IMX214/image
+```
+A window should open and you should see the feed from the Gazebo camera.
