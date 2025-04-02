@@ -17,7 +17,10 @@ void imgCallback(const gz::msgs::Image &msg)
     cv::Mat img_gray;
     cv::cvtColor(img_raw, img_gray, cv::COLOR_RGB2GRAY);
 
-    cv::imshow("Gazebo Preview", img_gray);
+    cv::Mat img_resized;
+    cv::resize(img_gray, img_resized, cv::Size(640, 480));
+
+    cv::imshow("Gazebo Preview", img_resized);
     cv::waitKey(1);
 }
 
