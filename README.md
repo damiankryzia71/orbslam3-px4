@@ -24,7 +24,7 @@ Now you should see the video feed from your Gazebo simulation inside QGroundCont
 ## 3. Gazebo Development Setup
 In order to make Gazebo libraries compile with ORB-SLAM3, we need to make small changes to soem Gazebo code.
 
-Open the files `Node.hh' and 'NodeShared.hh'. 
+Open the files `Node.hh` and `NodeShared.hh`. 
 
 On my end, they are located in `/usr/include/gz/transport13/gz/transport`.
 
