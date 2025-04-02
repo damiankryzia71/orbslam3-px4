@@ -27,6 +27,15 @@ Build PX4 and run a Gazebo-simulated drone. Here, I tested with the depth camera
 cd PX4-Autopilot/
 make px4_sitl gz_x500_depth_baylands
 ```
+NOTE: If you get an error about `gst.h`, try re-running PX4 setup with:
+```bash
+bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
+```
+OR making sure GStreamer dependencies are installed with:
+```bash
+sudo apt install gstreamer1.0-plugins-bad gstreamer1.0-libav gstreamer1.0-gl -y
+```
+
 ## 3. View the camera feed inside QGroundControl
 Run the QGroundControl app image.
 ```bash
