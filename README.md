@@ -18,7 +18,7 @@ Inside QGroundControl, navigate to Application Settings -> General -> Video Sett
 Leave the other options as default.
 Now you should see the video feed from your Gazebo simulation inside QGroundControl.
 
-### 3. Listen to the Gazebo topic.
+### 3. Monocular/Grayscale Setup
 The simulated camera should be publishing to a Gazebo topic. To list available topics, open a new terminal and run:
 ```bash
 gz topic -l
@@ -31,26 +31,4 @@ Confirm that the topic is receiving image data by running:
 ```bash
 gz topic -e -t /world/baylands/model/x500_depth_0/link/camera_link/sensor/IMX214/image
 ```
-Create a new C++ file inside one of the ORB-SLAM3 example folders. In my case, it is ORB-SLAM3/Examples/Monocular/gz_video.cpp. This program will subscribe to the Gazebo topic. Replace the topic name in GAZEBO_TOPIC if it is different on your end.
-*The complete program with my configuration is in gz_video.cpp in this repository.*
-```cpp
-#include <opencv2/core/core.hpp>
-#include <opencv2/imgproc/imgproc.hpp>
-#include <opencv2/highgui/highgui.hpp>
-#include <gz/transport/Node.hh>
-#include <gz/msgs/image.pb.h>
-
-#include "System.h"
-
-#include <iostream>
-#include <vector>
-#include <chrono>
-#include <thread>
-#include <string>
-#include <mutex>
-#include <atomic>
-
-using namespace std;
-
-const string GAZEBO_TOPIC = "/world/baylands/model/x500_depth_0/link/camera_link/sensor/IMX214/image";
-```
+First, it's good to preview the images from Gazebo without running ORB-SLAM3. To do so, put the `gz_preview_mono.cpp` file inside the `ORB-SLAM3/Examples/Monocular` directory.
