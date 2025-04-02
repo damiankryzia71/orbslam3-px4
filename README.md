@@ -21,7 +21,25 @@ Leave the other options as default.
 
 Now you should see the video feed from your Gazebo simulation inside QGroundControl.
 
-## 3. Monocular/Grayscale Setup
+## 3. Gazebo Development Setup
+In order to make Gazebo libraries compile with ORB-SLAM3, we need to make small changes to soem Gazebo code.
+
+Open the files: `Node.hh' and 'NodeShared.hh'. 
+
+On my end, they all located in `/usr/include/gz/transport13/gz/transport`.
+
+Both of the files should contain this line:
+```cpp
+public: std::optional<TopicStatistics> TopicStats(
+        const std::string &_topic) const;
+```
+In both of the files, change it to:
+```cpp
+public: TopicStatistics TopicStats(
+        const std::string &_topic) const;
+```
+
+## 4. Monocular/Grayscale Setup
 The simulated camera should be publishing to a Gazebo topic. To list available topics, open a new terminal and run:
 ```bash
 gz topic -l
