@@ -115,7 +115,9 @@ Rebuild ORB-SLAM3 (in the ORB-SLAM3 directory).
 ./build.sh
 ```
 
-The last step needed is configuring the camera. In the `ORB-SLAM3/Examples/Monocular` directory, create the configuration file:
+The last step needed is configuring the camera. In the `ORB-SLAM3/Examples/Monocular` directory, create the configuration file.
+
+You may also use the `px4_camera_mono.yaml` file from this repository.
 ```bash
 touch px4_camera_mono.yaml
 ```
