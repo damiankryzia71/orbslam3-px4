@@ -46,7 +46,7 @@ target_link_libraries(gz_preview_mono gz-transport13 gz-msgs10 ${PROJECT_NAME})
 ```
 Rebuild ORB-SLAM3 (in the ORB-SLAM3 directory).
 ```bash
-./buid.sh
+./build.sh
 ```
 Run the executable with the Gazebo topic name as an argument.
 ```bash
