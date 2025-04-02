@@ -86,8 +86,7 @@ int main(int argc, char **argv)
             timestamp = latest_timestamp;
             has_new_frame = false;
         }
-
-        cv::imshow("Gazebo Preview", img);
+        
         SLAM.TrackMonocular(img, timestamp);
     }
 
