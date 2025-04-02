@@ -19,8 +19,10 @@ Camera1.p1: 0.0
 Camera1.p2: 0.0
 Camera1.k3: 0.0
 
-Camera.width: 640 # RGB Width
-Camera.height: 480 # RGB Height
+Camera.width: 1920 # RGB Width
+Camera.height: 1080 # RGB Height
+Camera.newWidth: 640
+Camera.newHeight: 480
 
 # Camera frames per second
 Camera.fps: 30
