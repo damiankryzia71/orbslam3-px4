@@ -108,7 +108,7 @@ Rebuild ORB-SLAM3 (in the ORB-SLAM3 directory).
 
 The last step needed is configuring the camera. In the `ORB-SLAM3/Examples/Monocular` directory, create the configuration file:
 ```bash
-touch px4_camera.yaml
+touch px4_camera_mono.yaml
 ```
 To find out the Gazebo camera parameters, find the cmaera info topic while the simulation is running:
 ```bash
@@ -124,9 +124,9 @@ While using one of ORB-SLAM3's example configuration files as a template, use th
 
 Finally, with the simulation and QGroundControl running, run the program with the ORB-SLAM3 vocabulary file, the camera configuration file, and the Gazebo topic as arguments.
 ```bash
-./Examples/Monocular/gz_video_mono ./Vocabulary/ORBvoc.txt ./Examples/Monocular/px4_camera.yaml /world/baylands/model/x500_depth_0/link/camera_link/sensor/IMX214/image
+./Examples/Monocular/gz_video_mono ./Vocabulary/ORBvoc.txt ./Examples/Monocular/px4_camera_mono.yaml /world/baylands/model/x500_depth_0/link/camera_link/sensor/IMX214/image
 ```
-You might need to move the simulated drone, for example by running the takeoff command in QGroundControl, for the ORB-SLAM3 viewer to load properly.
+You might need to move the simulated drone, for example, by running the takeoff command in QGroundControl, for the ORB-SLAM3 viewer to load properly.
 
 You should see ORB-SLAM3 running within the simulated environment in the ORB-SLAM3 viewer.
 
