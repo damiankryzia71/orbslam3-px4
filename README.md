@@ -56,3 +56,5 @@ Run the executable with the Gazebo topic name as an argument while the simulatio
 ./Examples/Monocular/gz_preview_mono /world/baylands/model/x500_depth_0/link/camera_link/sensor/IMX214/image
 ```
 A window should open, and you should see the feed from the Gazebo camera.
+
+![Gazebo Preview Mono](https://github.com/damiankryzia71/orbslam3-gz-ubuntu22/blob/6e42ab974aca4b9628ace8618b3cfea9a7614ded/screenshots/Screenshot%20from%202025-04-01%2020-49-08.png)
