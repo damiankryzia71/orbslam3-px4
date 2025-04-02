@@ -111,3 +111,5 @@ Finally, with the simulation and QGroundControl running, run the program with th
 You might need to move the simulated drone, for example by running the takeoff command in QGroundControl, for the ORB-SLAM3 viewer to load properly.
 
 You should see ORB-SLAM3 running within the simulated environment in the ORB-SLAM3 viewer.
+
+![ORB-SLAM3 Viewer Mono](https://github.com/damiankryzia71/orbslam3-gz-ubuntu22/blob/71b52f816e1c0693b1930a2f86232f5bcdc629fc/screenshots/Screenshot%20from%202025-04-01%2021-13-42.png)
