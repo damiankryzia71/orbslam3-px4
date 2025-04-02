@@ -16,3 +16,4 @@ Run the QGroundControl app image.
 ```
 Inside QGroundControl, navigate to Application Settings -> General -> Video Settings and enable streaming from UDP h.264 Video Stream.
 Leave the other options as default.
+Now you should see the video feed from your Gazebo simulation inside QGroundControl.
