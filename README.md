@@ -33,3 +33,9 @@ gz topic -e -t /world/baylands/model/x500_depth_0/link/camera_link/sensor/IMX214
 ```
 First, it's good to preview the images from Gazebo without running ORB-SLAM3.
 To do so, put the `gz_preview_mono.cpp` file inside the `ORB-SLAM3/Examples/Monocular` directory.
+Add the following to the `CMakeLists.txt` file in the main `ORB-SLAM3` directory. under the `set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Examples/Monocular)` line.
+```cmake
+add_executable(gz_preview_mono
+        Examples/Monocular/gz_preview_mono.cpp)
+target_link_libraries(gz_preview_mono gz-transport13 gz-msgs10 ${PROJECT_NAME})
+```
