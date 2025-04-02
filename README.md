@@ -48,8 +48,8 @@ Rebuild ORB-SLAM3 (in the ORB-SLAM3 directory).
 ```bash
 ./build.sh
 ```
-Run the executable with the Gazebo topic name as an argument.
+Run the executable with the Gazebo topic name as an argument while the simulation is running.
 ```bash
 ./Examples/Monocular/gz_preview_mono /world/baylands/model/x500_depth_0/link/camera_link/sensor/IMX214/image
 ```
-A window should open and you should see the feed from the Gazebo camera.
+A window should open, and you should see the feed from the Gazebo camera.
