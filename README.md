@@ -31,4 +31,5 @@ Confirm that the topic is receiving image data by running:
 ```bash
 gz topic -e -t /world/baylands/model/x500_depth_0/link/camera_link/sensor/IMX214/image
 ```
-First, it's good to preview the images from Gazebo without running ORB-SLAM3. To do so, put the `gz_preview_mono.cpp` file inside the `ORB-SLAM3/Examples/Monocular` directory.
+First, it's good to preview the images from Gazebo without running ORB-SLAM3.
+To do so, put the `gz_preview_mono.cpp` file inside the `ORB-SLAM3/Examples/Monocular` directory.
