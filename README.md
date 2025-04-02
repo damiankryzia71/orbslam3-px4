@@ -16,7 +16,9 @@ Run the QGroundControl app image.
 ```
 Inside QGroundControl, navigate to Application Settings -> General -> Video Settings and enable streaming from UDP h.264 Video Stream.
 Leave the other options as default.
+
 ![QGC Settings](https://github.com/damiankryzia71/orbslam3-gz-ubuntu22/blob/1434da47aa1d87834c4a4d755039aa4110919705/screenshots/Screenshot%20from%202025-04-01%2018-06-33.png)
+
 Now you should see the video feed from your Gazebo simulation inside QGroundControl.
 
 ### 3. Monocular/Grayscale Setup
