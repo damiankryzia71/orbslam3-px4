@@ -27,6 +27,10 @@ Find a topic that publishes camera image data. In my case, it is:
 ```bash
 /world/baylands/model/x500_depth_0/link/camera_link/sensor/IMX214/image
 ```
+Confirm that the topic is receiving image data by running:
+```bash
+gz topic -e -t /world/baylands/model/x500_depth_0/link/camera_link/sensor/IMX214/image
+```
 Create a new C++ file inside one of the ORB-SLAM3 example folders. In my case, it is ORB-SLAM3/Examples/Monocular/gz_video.cpp. This program will subscribe to the Gazebo topic. Replace the topic name in GAZEBO_TOPIC if it is different on your end.
 *The complete program with my configuration is in gz_video.cpp in this repository.*
 ```cpp
