@@ -81,7 +81,29 @@ Replace it with the new plugin:
 ```
 NOTE: You may also use this plugin to stream video from other drones, such as the ones that use the depth camera. To do so, add it to `depth_camera.sdf` located at `PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/models/depth_camera/`.
 
-## 4. Monocular/Grayscale Setup
+## 4. Confirm stream on multiple ports.
+Rebuild the PX4 simulation.
+```bash
+make px4_sitl gazebo-classic_typhoon_h480__warehouse
+```
+Run QGroundControl and again confirm that it's receiving the video stream at UDP port 5600.
+```bash
+./QGroundControl.AppImage
+```
+Open a new terminal and, while QGroundControl is running, run the following command to confirm that the video stream can be read simultaneously from UDP port 5601.
+```bash
+gst-launch-1.0 -v \
+  udpsrc port=5601 caps="application/x-rtp, media=video, encoding-name=H264, payload=96" ! \
+  rtph264depay ! \
+  avdec_h264 ! \
+  videoconvert ! \
+  autovideosink
+```
+If everything works correctly, a new window should open in which you can view the video. Both this window and the one inside QGroundControl should be working properly in parallel.
+
+If everything is set up correctly at this point, we are able to use ORB-SLAM3 with the simulated camera.
+
+## 4. ORB-SLAM3 Setup
 The simulated camera should be publishing to a Gazebo topic. To list available topics, open a new terminal and run:
 ```bash
 gz topic -l
