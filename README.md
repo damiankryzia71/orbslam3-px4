@@ -2,7 +2,7 @@
 
 
 ## Prerequisites
-Follow the instructions in [this repository](https://github.com/damiankryzia71/orbslam3-px4-qgc-ubuntu22) to install PX4, QGroundControl, and ORB-SLAM3.
+Follow the instructions in [this repository](https://github.com/damiankryzia71/orbslam3-px4-qgc-ubuntu/tree/ubuntu20) to install PX4, QGroundControl, and ORB-SLAM3.
 
 ## 1. Gazebo Development Setup
 In order to make Gazebo libraries compile with ORB-SLAM3, we need to make small changes to soem Gazebo code.
