@@ -38,9 +38,48 @@ Now you should see the video feed from your Gazebo simulation inside QGroundCont
 ## 3. Modify the Gazebo Gst plugin to stream to multiple ports.
 By default, the Typhoon H480 model streams video to UDP port 5600. QGroundControl reads from this port and displays the video.
 
-To use the video stream in multiple programs, such as ORB-SLAM3, we will need to enable streaming on multiple ports.
+We will need to enable streaming on multiple ports to use the video stream in multiple programs, such as ORB-SLAM3.
 
-The Typhoon H480 uses a Gazebo plugin that creates a GStreamer pipeline. This repository contains a modified version of that plugin.
+The Typhoon H480 uses a Gazebo plugin that creates a GStreamer pipeline. This repository contains a modified version of that plugin in `modified_gst_plugin.cpp`.
+
+Put the `modified_gst_plugin.cpp` source file in the `PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/src/` directory.
+
+Open the `CMakeLists.txt` file in the `PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/` directory.
+
+Locate the line:
+```cmake
+if (GSTREAMER_FOUND)
+```
+Under it, add this line:
+```cmake
+add_library(modified_gst_plugin SHARED src/modified_gst_plugin.cpp)
+```
+Modifiy the statment below it to contain the new plugin:
+```cmake
+set(plugins
+  ${plugins}
+  gazebo_gst_camera_plugin
+  modified_gst_plugin
+)
+```
+Finally, locate the SDF Typhoon H480 model at `PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/models/typhoon_h480`.
+It should contain the original plugin like so:
+```sdf
+<plugin name="GstCameraPlugin" filename="libgazebo_gst_camera_plugin.so">
+  <robotNamespace></robotNamespace>
+  <udpHost>127.0.0.1</udpHost>
+  <udpPort>5600</udpPort>
+</plugin>
+```
+Replace it with the new plugin:
+```sdf
+<plugin name="GstCameraPlugin" filename="libmodified_gst_plugin.so">
+  <robotNamespace></robotNamespace>
+  <udpHost>127.0.0.1</udpHost>
+  <udpPorts>5600,5601</udpPorts>
+</plugin>
+```
+NOTE: You may also use this plugin to stream video from other drones. To do so, add it to `depth_camera.sdf` located at `PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/models/depth_camera/`.
 
 ## 4. Monocular/Grayscale Setup
 The simulated camera should be publishing to a Gazebo topic. To list available topics, open a new terminal and run:
