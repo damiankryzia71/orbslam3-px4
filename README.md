@@ -4,29 +4,11 @@
 ## Prerequisites
 Follow the instructions in [this repository](https://github.com/damiankryzia71/orbslam3-px4-qgc-ubuntu/tree/ubuntu20) to install PX4, QGroundControl, and ORB-SLAM3.
 
-## 1. Gazebo Development Setup
-In order to make Gazebo libraries compile with ORB-SLAM3, we need to make small changes to soem Gazebo code.
-
-Open the files `Node.hh` and `NodeShared.hh`. 
-
-On my end, they are located in `/usr/include/gz/transport13/gz/transport`.
-
-Both of the files should contain this line:
-```cpp
-public: std::optional<TopicStatistics> TopicStats(
-        const std::string &_topic) const;
-```
-In both of the files, change it to:
-```cpp
-public: TopicStatistics TopicStats(
-        const std::string &_topic) const;
-```
-
-## 2. Run the Gazebo simulation
+## 1. Run the Gazebo simulation
 Build PX4 and run a Gazebo-simulated drone. Here, I tested with the depth camera model inside the Baylands world.
 ```bash
 cd PX4-Autopilot/
-make px4_sitl gz_x500_depth_baylands
+make px4_sitl gazebo-classic
 ```
 NOTE: If you get an error about `gst.h`, try re-running PX4 setup with:
 ```bash
