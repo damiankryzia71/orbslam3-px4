@@ -5,10 +5,14 @@
 Follow the instructions in [this repository](https://github.com/damiankryzia71/orbslam3-px4-qgc-ubuntu/tree/ubuntu20) to install PX4, QGroundControl, and ORB-SLAM3.
 
 ## 1. Run the Gazebo simulation
-Build PX4 and run a Gazebo-simulated drone. Here, I tested with the depth camera model inside the Baylands world.
+Build PX4 and run a Gazebo-simulated drone.
+
+By default, only the Typhoon H480 model streams video, so we will use it here.
+
+I tested in the Warehouse world.
 ```bash
 cd PX4-Autopilot/
-make px4_sitl gazebo-classic
+make px4_sitl gazebo-classic_typhoon_h480__warehouse
 ```
 NOTE: If you get an error about `gst.h`, try re-running PX4 setup with:
 ```bash
@@ -19,7 +23,7 @@ OR making sure GStreamer dependencies are installed with:
 sudo apt install gstreamer1.0-plugins-bad gstreamer1.0-libav gstreamer1.0-gl -y
 ```
 
-## 3. View the camera feed inside QGroundControl
+## 2. View the camera feed inside QGroundControl
 Run the QGroundControl app image.
 ```bash
 ./QGroundControl.AppImage
@@ -30,6 +34,13 @@ Leave the other options as default.
 ![QGC Settings](https://github.com/damiankryzia71/orbslam3-gz-ubuntu22/blob/1434da47aa1d87834c4a4d755039aa4110919705/screenshots/Screenshot%20from%202025-04-01%2018-06-33.png)
 
 Now you should see the video feed from your Gazebo simulation inside QGroundControl.
+
+## 3. Modify the Gazebo Gst plugin to stream to multiple ports.
+By default, the Typhoon H480 model streams video to UDP port 5600. QGroundControl reads from this port and displays the video.
+
+To use the video stream in multiple programs, such as ORB-SLAM3, we will need to enable streaming on multiple ports.
+
+The Typhoon H480 uses a Gazebo plugin that creates a GStreamer pipeline. This repository contains a modified version of that plugin.
 
 ## 4. Monocular/Grayscale Setup
 The simulated camera should be publishing to a Gazebo topic. To list available topics, open a new terminal and run:
