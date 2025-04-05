@@ -103,7 +103,7 @@ If everything works correctly, a new window should open in which you can view th
 
 If everything is set up correctly at this point, we are able to use ORB-SLAM3 with the simulated camera.
 
-## 4. ORB-SLAM3 Setup
+## 5. ORB-SLAM3 Setup
 Put the `px4_video_mono.cpp` file in the `ORB-SLAM3/Examples/Monocular` directory.
 
 In the `CMakeList.txt` file, under the line:
