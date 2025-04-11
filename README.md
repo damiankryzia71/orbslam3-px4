@@ -44,6 +44,8 @@ The Typhoon H480 uses a Gazebo plugin that creates a GStreamer pipeline. This re
 
 Put the `modified_gst_plugin.cpp` source file in the `PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/src/` directory.
 
+Put the `modified_gst_plugin.h` header file in the `PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/include/` directory.
+
 Open the `CMakeLists.txt` file in the `PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/` directory.
 
 Locate the line:
