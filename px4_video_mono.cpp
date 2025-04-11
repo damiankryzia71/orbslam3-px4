@@ -22,7 +22,7 @@ void listenForStopCommand() {
 int main(int argc, char** argv)
 {
     if (argc < 3)
-        std::cout << "USAGE: gz_video_mono PATH_TO_VOCABULARY PATH_TO_CONFIG" << std::endl;
+        std::cout << "USAGE: px4_video_mono PATH_TO_VOCABULARY PATH_TO_CONFIG" << std::endl;
 
     const std::string PATH_TO_VOCAB = argv[1];
     const std::string PATH_TO_CONFIG = argv[2];
